@@ -16,12 +16,14 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-
 // NPM Requirements
 import { Player } from 'react-native-audio-streaming';
 
 // Actions
 import ActiveSoundActions from '../actions/ActiveSoundActions';
+
+// Components
+import GoogleSignIn from '../components/GoogleSignIn';
 
 class PlayScreen extends React.Component {
     constructor(props) {

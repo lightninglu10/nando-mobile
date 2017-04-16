@@ -8,8 +8,6 @@ import types from '../config/action-types';
 // import API from '../config/api';
 import Helpers from './helpers';
 
-
-
 module.exports = {
     chooseActive: function chooseActive(active) {
         return dispatch => {
