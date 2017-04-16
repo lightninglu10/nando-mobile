@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import { IOS_CLIENT_ID } from '../config/settings';
 
 class GoogleSignInComponent extends React.Component {
     constructor(props) {
@@ -18,10 +19,9 @@ class GoogleSignInComponent extends React.Component {
         }
     }
 
-    _signIn = () => {
+    _signIn() {
         GoogleSignin.signIn()
         .then((user) => {
-            console.log(user);
             this.setState({user: user});
         })
         .catch((err) => {
@@ -37,6 +37,14 @@ class GoogleSignInComponent extends React.Component {
         .catch((err) => {
           console.log("Play services error", err.code, err.message);
         })
+
+        GoogleSignin.configure({
+            iosClientId: IOS_CLIENT_ID,
+            scopes: ['email', 'profile', 'https://www.googleapis.com/auth/plus.login', "https://www.googleapis.com/auth/drive.readonly"]
+        })
+        .then(() => {
+            // you can now call currentUserAsync()
+        });
     }
 
     render() {
