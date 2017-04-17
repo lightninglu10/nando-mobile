@@ -25,6 +25,13 @@ import ActiveSoundActions from '../actions/ActiveSoundActions';
 // Components
 import GoogleSignIn from '../components/GoogleSignIn';
 
+// Config / settings
+import { IOS_CLIENT_ID } from '../config/settings';
+
+// NPM
+import { Actions } from 'react-native-router-flux';
+import { GoogleSignin } from 'react-native-google-signin';
+
 class PlayScreen extends React.Component {
     constructor(props) {
         super(props);
@@ -34,10 +41,42 @@ class PlayScreen extends React.Component {
         }
     }
 
+    signout = () => {
+        GoogleSignin.signOut()
+        .then(() => {
+          console.log('out');
+        })
+        .catch((err) => {
+
+        });
+
+    }
+
+    componentDidMount() {
+        // Check if a user is already logged in
+        // Configure google sign in
+        GoogleSignin.configure({
+            iosClientId: IOS_CLIENT_ID,
+            scopes: ['email', 'profile', 'https://www.googleapis.com/auth/plus.login', "https://www.googleapis.com/auth/drive.readonly"]
+        })
+        .then(() => {
+            // you can now call currentUserAsync()
+            GoogleSignin.currentUserAsync().then((user) => {
+                console.log('USER', user);
+                this.setState({user: user});
+                if (!user) {
+                    console.log('login needs to pop');
+                    Actions.authScreen();
+                }
+            }).done();
+        });
+    }
+
     render() {
         var { activeSound } = this.props;
         return (
             <View style={styles.container}>
+                <Text onPress={this.signout}> Logout </Text>
                 <Player url={activeSound.file} />
             </View>
         );

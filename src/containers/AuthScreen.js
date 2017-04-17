@@ -22,13 +22,20 @@ import AuthActions from '../actions/AuthActions';
 // Components
 import GoogleSignIn from '../components/GoogleSignIn';
 
-class PlayScreen extends React.Component {
+import { Actions } from 'react-native-router-flux';
+
+
+class AuthScreen extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
 
         }
+    }
+
+    componentDidMount() {
+        Actions.playScreen();
     }
 
     render() {
@@ -62,4 +69,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-module.exports = connect(mapStateToProps)(PlayScreen);
+module.exports = connect(mapStateToProps)(AuthScreen);

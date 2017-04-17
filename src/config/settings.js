@@ -21,9 +21,10 @@ export const ENVIRONMENT_TYPE = {
 /**
 * Enum declaring all the possible app identifiers.
 */
+// TODO get this right
 export const APP_IDENTIFIER_TYPE = {
-  LOCAL: 'co.thehobby.amplifi-local',
-  DEVELOPMENT: 'co.thehobby.amplifi-dev',
+  LOCAL: 'org.reactjs.native.example.nando',
+  DEVELOPMENT: 'org.reactjs.native.example.nando',
   STAGING: 'co.thehobby.amplifi-stag',
   PRODUCTION: 'co.thehobby.amplify',
 };

@@ -11,8 +11,8 @@ export default class Routes extends React.Component {
         return (
             <Router>
                 <Scene key="root">
-                    <Scene key="auth" component={AuthScreen} />
-                    <Scene key="PlayScreen" component={PlayScreen} title="" name="PlayScreen" />
+                    <Scene key="playScreen" component={PlayScreen} title="" name="PlayScreen" initial />
+                    <Scene key="authScreen" component={AuthScreen} name="authScreen" type="transitionToTop" hideNavBar schema="modal" />
                 </Scene>
             </Router>
         )

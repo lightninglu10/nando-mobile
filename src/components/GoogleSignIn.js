@@ -22,6 +22,7 @@ class GoogleSignInComponent extends React.Component {
     _signIn() {
         GoogleSignin.signIn()
         .then((user) => {
+            console.log(user)
             this.setState({user: user});
         })
         .catch((err) => {
@@ -31,19 +32,12 @@ class GoogleSignInComponent extends React.Component {
     }
 
     componentDidMount() {
+        // Check if there are google play services
         GoogleSignin.hasPlayServices({ autoResolve: true }).then(() => {
             // play services are available. can now configure library
         })
         .catch((err) => {
           console.log("Play services error", err.code, err.message);
-        })
-
-        GoogleSignin.configure({
-            iosClientId: IOS_CLIENT_ID,
-            scopes: ['email', 'profile', 'https://www.googleapis.com/auth/plus.login', "https://www.googleapis.com/auth/drive.readonly"]
-        })
-        .then(() => {
-            // you can now call currentUserAsync()
         });
     }
 
