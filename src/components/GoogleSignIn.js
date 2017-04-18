@@ -7,7 +7,11 @@ import {
     View
 } from 'react-native';
 
+// NPM
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
+import { Actions } from 'react-native-router-flux';
+
+// Settings
 import { IOS_CLIENT_ID } from '../config/settings';
 
 class GoogleSignInComponent extends React.Component {
@@ -24,6 +28,7 @@ class GoogleSignInComponent extends React.Component {
         .then((user) => {
             console.log(user)
             this.setState({user: user});
+            Actions.playScreen();
         })
         .catch((err) => {
             console.log('WRONG SIGNIN', err);

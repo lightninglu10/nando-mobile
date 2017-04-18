@@ -1,5 +1,5 @@
 /**
- * The screen that contains the player
+ * The screen that contains Auth
  * @patr
  */
 
@@ -22,6 +22,7 @@ import AuthActions from '../actions/AuthActions';
 // Components
 import GoogleSignIn from '../components/GoogleSignIn';
 
+// NPM
 import { Actions } from 'react-native-router-flux';
 
 
@@ -32,10 +33,6 @@ class AuthScreen extends React.Component {
         this.state = {
 
         }
-    }
-
-    componentDidMount() {
-        Actions.playScreen();
     }
 
     render() {
