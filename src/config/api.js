@@ -11,7 +11,8 @@ const BASE_URL = process.env.NODE_ENV === 'production' ? ('https://' + PRODUCTIO
 
 module.exports = {
     // URL's
-    GOOGLE_LOGIN: BASE_URL + '/login/google',
+    GOOGLE_LOGIN: BASE_URL + '/login/google/callback',
+    GOOGLE_DRIVE: 'https://www.googleapis.com/drive/v3',
 
     // REST Configs for Fetch API
     GET_CONFIG: {

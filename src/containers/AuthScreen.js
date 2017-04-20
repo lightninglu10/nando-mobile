@@ -35,11 +35,15 @@ class AuthScreen extends React.Component {
         }
     }
 
+    setUser = () => {
+
+    }
+
     render() {
-        var { activeSound } = this.props;
+        var { authActions } = this.props;
         return (
             <View style={styles.container}>
-                <GoogleSignIn />
+                <GoogleSignIn authActions={authActions} />
             </View>
         );
     }
@@ -56,7 +60,7 @@ const styles = StyleSheet.create({
 
 function mapStateToProps(state) {
     return {
-        auth: state.auth,
+        user: state.user,
     };
 }
 
@@ -66,4 +70,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-module.exports = connect(mapStateToProps)(AuthScreen);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(AuthScreen);

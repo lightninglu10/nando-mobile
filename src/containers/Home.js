@@ -16,11 +16,14 @@ import {
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
+// Actions
+import AuthActions from '../actions/AuthActions';
+
 // NPM
 import { Actions } from 'react-native-router-flux';
 
 // Config / settings
-import { IOS_CLIENT_ID } from '../config/settings';
+import { IOS_GOOGLE_CLIENT_ID } from '../config/settings';
 import { GoogleSignin } from 'react-native-google-signin';
 
 class Home extends React.Component {
@@ -36,7 +39,7 @@ class Home extends React.Component {
          // Check if a user is already logged in
         // Configure google sign in
         GoogleSignin.configure({
-            iosClientId: IOS_CLIENT_ID,
+            iosClientId: IOS_GOOGLE_CLIENT_ID,
             scopes: ['email', 'profile', 'https://www.googleapis.com/auth/plus.login', "https://www.googleapis.com/auth/drive.readonly"]
         })
         .then(() => {
@@ -46,9 +49,11 @@ class Home extends React.Component {
                 this.setState({user: user});
                 if (!user) {
                     console.log('login needs to pop');
-                    setTimeout(() => {Actions.authScreen();}, 500)
+                    setTimeout(() => {Actions.authScreen({type: 'replace'});}, 500)
                 } else {
-                    setTimeout(() => {Actions.playScreen();}, 500)
+                    let { authActions } = this.props;
+                    authActions.loggedIn(user);
+                    setTimeout(() => {Actions.playScreen({type: 'replace'});}, 500)
                 }
             }).done();
         });
@@ -73,4 +78,10 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = connect()(Home);
+function mapDispatchToProps(dispatch) {
+    return {
+        authActions: bindActionCreators(AuthActions, dispatch),
+    };
+}
+
+module.exports = connect(null, mapDispatchToProps)(Home);

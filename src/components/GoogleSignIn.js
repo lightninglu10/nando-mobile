@@ -11,9 +11,6 @@ import {
 import {GoogleSignin, GoogleSigninButton} from 'react-native-google-signin';
 import { Actions } from 'react-native-router-flux';
 
-// Settings
-import { IOS_CLIENT_ID } from '../config/settings';
-
 class GoogleSignInComponent extends React.Component {
     constructor(props) {
         super(props);
@@ -28,6 +25,7 @@ class GoogleSignInComponent extends React.Component {
         .then((user) => {
             console.log(user)
             this.setState({user: user});
+            this.props.authActions.loggedIn(user);
             Actions.playScreen();
         })
         .catch((err) => {

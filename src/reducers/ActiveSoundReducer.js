@@ -7,6 +7,7 @@
 import types from '../config/action-types';
 
 const initialState = {
+    files: [],
     file: 'https://mixergy.com/wp-content/audio/Mixergy-WhiteLabelDating-Ross-Williams.mp3',
     title: '',
 }
@@ -14,6 +15,7 @@ const initialState = {
 module.exports = function ActiveSoundReducer(state = initialState, action) {
     switch (action.type) {
         case types.CHOOSE_FILE:
+        case types.FILES_LIST:
         return {
             ...state,
             ...action,

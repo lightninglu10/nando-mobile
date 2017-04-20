@@ -50,6 +50,11 @@ class PlayScreen extends React.Component {
 
     }
 
+    componentDidMount() {
+        let { user, activeSoundActions } = this.props;
+        activeSoundActions.getFileList(user.user.accessToken);
+    }
+
     render() {
         var { activeSound } = this.props;
         return (
@@ -72,6 +77,7 @@ const styles = StyleSheet.create({
 function mapStateToProps(state) {
     return {
         activeSound: state.activeSound,
+        user: state.user,
     };
 }
 
@@ -81,4 +87,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-module.exports = connect(mapStateToProps)(PlayScreen);
+module.exports = connect(mapStateToProps, mapDispatchToProps)(PlayScreen);

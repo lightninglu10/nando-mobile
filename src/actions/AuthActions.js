@@ -10,12 +10,11 @@ import Helpers from './helpers';
 
 module.exports = {
     // TODO: Write real actions
-    chooseActive: function chooseActive(active) {
+    loggedIn: function loggedIn(user) {
         return dispatch => {
             return dispatch({
-                type: types.CHOOSE_FILE,
-                file: active.file,
-                title: active.title,
+                type: types.LOGIN,
+                user: user,
             });
         }
     }

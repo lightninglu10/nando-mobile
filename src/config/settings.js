@@ -80,4 +80,5 @@ export const HOME_GRID_SPACING = 8;
 * Google Client ID
 */
 
-export const IOS_CLIENT_ID = '911088567565-l2la7fvbd4fpaih15318tke5c5ig6qc0.apps.googleusercontent.com';
+export const IOS_GOOGLE_CLIENT_ID = '911088567565-l2la7fvbd4fpaih15318tke5c5ig6qc0.apps.googleusercontent.com';
+
