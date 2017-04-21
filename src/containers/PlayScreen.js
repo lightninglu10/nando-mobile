@@ -52,11 +52,12 @@ class PlayScreen extends React.Component {
 
     componentDidMount() {
         let { user, activeSoundActions } = this.props;
-        activeSoundActions.getFileList(user.user.accessToken);
+        activeSoundActions.getFolders(user.user.accessToken);
     }
 
     render() {
         var { activeSound } = this.props;
+
         return (
             <View style={styles.container}>
                 <Text onPress={this.signout}> Logout </Text>

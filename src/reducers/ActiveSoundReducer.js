@@ -8,7 +8,9 @@ import types from '../config/action-types';
 
 const initialState = {
     files: [],
-    file: 'https://mixergy.com/wp-content/audio/Mixergy-WhiteLabelDating-Ross-Williams.mp3',
+    folders: [],
+    activeFolder: '',
+    activeFile: 'https://mixergy.com/wp-content/audio/Mixergy-WhiteLabelDating-Ross-Williams.mp3',
     title: '',
 }
 

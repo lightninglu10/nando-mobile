@@ -13,6 +13,7 @@ module.exports = {
     // URL's
     GOOGLE_LOGIN: BASE_URL + '/login/google/callback',
     GOOGLE_DRIVE: 'https://www.googleapis.com/drive/v3',
+    FOLDER_URL: '/files?q=mimeType+%3D+%27application%2Fvnd.google-apps.folder%27',
 
     // REST Configs for Fetch API
     GET_CONFIG: {

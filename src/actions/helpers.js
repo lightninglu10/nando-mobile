@@ -4,7 +4,6 @@
 */
 
 // Router requirements
-// import { browserHistory } from 'react-router';
 
 /* global Promise */
 

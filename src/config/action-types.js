@@ -5,9 +5,11 @@
 */
 
 module.exports = {
-    // Files API
+    // Files + Folders API
     CHOOSE_FILE: 'Choosing a file to play',
     FILES_LIST: 'List of files in drive',
+    ALL_FOLDERS: 'Gets list of folders',
+    ACTIVE_FOLDER: 'Choosing the active folder',
 
     // User API
     LOGIN: 'Logged in',
