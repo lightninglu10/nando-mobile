@@ -10,6 +10,7 @@ module.exports = {
     FILES_LIST: 'List of files in drive',
     ALL_FOLDERS: 'Gets list of folders',
     ACTIVE_FOLDER: 'Choosing the active folder',
+    GET_FILES: 'Getting files from specific folder',
 
     // User API
     LOGIN: 'Logged in',

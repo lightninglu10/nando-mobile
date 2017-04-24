@@ -6,11 +6,16 @@
 // React + React Native Requirements
 import React from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    ScrollView,
+    Platform,
+    TouchableHighlight,
+    NativeModules
 } from 'react-native';
+
+const { ReactNativeAudioStreaming } = 'react-native-audio-streaming';
 
 // Redux
 import { connect } from 'react-redux';
@@ -24,6 +29,9 @@ import ActiveSoundActions from '../actions/ActiveSoundActions';
 
 // Components
 import GoogleSignIn from '../components/GoogleSignIn';
+import Folders from '../components/Folders';
+import Files from '../components/Files';
+import AudioPlayer from '../components/AudioPlayer';
 
 // NPM
 import { Actions } from 'react-native-router-flux';
@@ -47,21 +55,55 @@ class PlayScreen extends React.Component {
         .catch((err) => {
 
         });
-
     }
 
-    componentDidMount() {
+    getFiles = (folderId) => {
         let { user, activeSoundActions } = this.props;
-        activeSoundActions.getFolders(user.user.accessToken);
+        activeSoundActions.getFileList(user.user.accessToken, folderId)
+        .then((json) => {
+
+        });
+    }
+
+    chooseActiveFile = (fileId) => {
+        let { user, activeSoundActions } = this.props;
+        activeSoundActions.chooseActive(user.user.accessToken, fileId)
+        .then((json) => {
+            // ReactNativeAudioStreaming.play(json.activeFile, {showIniOSMediaCenter: true, showInAndroidNotifications: true})
+        })
     }
 
     render() {
         var { activeSound } = this.props;
+        var render = null
+        if (activeSound.files.length > 0) {
+            render = activeSound.files.map((file, index) => {
+                return (
+                    <TouchableHighlight key={file.id} onPress={() => this.chooseActiveFile(file.id)}>
+                        <View>
+                            <Files name={file.name} key={file.id} onClick={this.chooseActiveFile} />
+                        </View>
+                    </TouchableHighlight>
+                );
+            });
+        } else {
+            render = activeSound.folders.map((folder, index) => {
+                return (
+                    <TouchableHighlight key={folder.id} onPress={() => this.getFiles(folder.id)}>
+                        <View>
+                            <Folders name={folder.name} />
+                        </View>
+                    </TouchableHighlight>
+                );
+            });
+        }
 
         return (
             <View style={styles.container}>
-                <Text onPress={this.signout}> Logout </Text>
-                <Player url={activeSound.file} />
+                <ScrollView>
+                    { render }
+                </ScrollView>
+                <AudioPlayer url={activeSound.activeFile} />
             </View>
         );
     }
@@ -70,8 +112,14 @@ class PlayScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    paddingTop: Platform.OS === 'ios'? 64 : 54, //nav bar height
+  },
+  scroll: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  folders: {
+    // flexDirection: 'column',
   },
 });
 

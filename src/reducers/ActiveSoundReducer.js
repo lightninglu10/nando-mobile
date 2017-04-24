@@ -16,8 +16,11 @@ const initialState = {
 
 module.exports = function ActiveSoundReducer(state = initialState, action) {
     switch (action.type) {
+        case types.ACTIVE_FOLDER:
+        case types.ALL_FOLDERS:
         case types.CHOOSE_FILE:
         case types.FILES_LIST:
+        case types.GET_FILES:
         return {
             ...state,
             ...action,

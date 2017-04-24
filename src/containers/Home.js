@@ -6,10 +6,10 @@
 // React + React Native Requirements
 import React from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    StatusBar,
 } from 'react-native';
 
 // Redux
@@ -18,6 +18,7 @@ import { bindActionCreators } from 'redux';
 
 // Actions
 import AuthActions from '../actions/AuthActions';
+import ActiveSoundActions from '../actions/ActiveSoundActions';
 
 // NPM
 import { Actions } from 'react-native-router-flux';
@@ -45,15 +46,17 @@ class Home extends React.Component {
         .then(() => {
             // you can now call currentUserAsync()
             GoogleSignin.currentUserAsync().then((user) => {
-                console.log('USER', user);
-                this.setState({user: user});
                 if (!user) {
                     console.log('login needs to pop');
                     setTimeout(() => {Actions.authScreen({type: 'replace'});}, 500)
                 } else {
-                    let { authActions } = this.props;
+                    console.log(user);
+                    let { authActions, activeSoundActions } = this.props;
                     authActions.loggedIn(user);
-                    setTimeout(() => {Actions.playScreen({type: 'replace'});}, 500)
+                    activeSoundActions.getFolders(user.accessToken)
+                    .then(setTimeout(() => {
+                        Actions.playScreen({type: 'reset'});
+                    }, 500))
                 }
             }).done();
         });
@@ -81,6 +84,7 @@ const styles = StyleSheet.create({
 function mapDispatchToProps(dispatch) {
     return {
         authActions: bindActionCreators(AuthActions, dispatch),
+        activeSoundActions: bindActionCreators(ActiveSoundActions, dispatch),
     };
 }
 

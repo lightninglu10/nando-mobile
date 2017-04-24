@@ -18,23 +18,16 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-class Folders extends React.Component {
+class Files extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-
-        }
-    }
-
-    componentDidMount() {
 
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <Icon name="folder" size={40} color="#900" />
+                <Icon name="play" size={40} color="#900" />
                 <Text style={styles.name}> { this.props.name } </Text>
             </View>
         );
@@ -71,4 +64,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default Folders;
+export default Files;
