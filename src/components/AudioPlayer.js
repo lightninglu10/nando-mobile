@@ -10,7 +10,7 @@ import {
     Platform
 } from 'react-native';
 
-const { ReactNativeAudioStreaming } = 'react-native-audio-streaming';
+import { ReactNativeAudioStreaming } from 'react-native-audio-streaming';
 
 // Possibles states
 const PLAYING = 'PLAYING';

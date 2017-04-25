@@ -12,17 +12,14 @@ import {
     ScrollView,
     Platform,
     TouchableHighlight,
-    NativeModules
 } from 'react-native';
-
-const { ReactNativeAudioStreaming } = 'react-native-audio-streaming';
 
 // Redux
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // NPM Requirements
-import { Player } from 'react-native-audio-streaming';
+import { Player, ReactNativeAudioStreaming } from 'react-native-audio-streaming';
 
 // Actions
 import ActiveSoundActions from '../actions/ActiveSoundActions';
@@ -46,7 +43,7 @@ class PlayScreen extends React.Component {
         }
     }
 
-    signout = () => {
+    signOut = () => {
         GoogleSignin.signOut()
         .then(() => {
           console.log('out');
@@ -69,7 +66,7 @@ class PlayScreen extends React.Component {
         let { user, activeSoundActions } = this.props;
         activeSoundActions.chooseActive(user.user.accessToken, fileId)
         .then((json) => {
-            // ReactNativeAudioStreaming.play(json.activeFile, {showIniOSMediaCenter: true, showInAndroidNotifications: true})
+            ReactNativeAudioStreaming.play(json.activeFile, {showIniOSMediaCenter: true, showInAndroidNotifications: true})
         })
     }
 
@@ -100,6 +97,9 @@ class PlayScreen extends React.Component {
 
         return (
             <View style={styles.container}>
+                <Text onPress={this.signOut}>
+                    Logout
+                </Text>
                 <ScrollView>
                     { render }
                 </ScrollView>
