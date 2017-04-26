@@ -11,6 +11,8 @@ module.exports = {
     ALL_FOLDERS: 'Gets list of folders',
     ACTIVE_FOLDER: 'Choosing the active folder',
     GET_FILES: 'Getting files from specific folder',
+    FETCHING_FOLDERS: 'Fetching folders',
+    FETCHING_FILES: 'Fetching files',
 
     // User API
     LOGIN: 'Logged in',

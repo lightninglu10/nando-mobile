@@ -20,6 +20,7 @@ import { bindActionCreators } from 'redux';
 
 // NPM Requirements
 import { Player, ReactNativeAudioStreaming } from 'react-native-audio-streaming';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 // Actions
 import ActiveSoundActions from '../actions/ActiveSoundActions';
@@ -29,6 +30,7 @@ import GoogleSignIn from '../components/GoogleSignIn';
 import Folders from '../components/Folders';
 import Files from '../components/Files';
 import AudioPlayer from '../components/AudioPlayer';
+import NavBar from './NavBar.js';
 
 // NPM
 import { Actions } from 'react-native-router-flux';
@@ -67,11 +69,11 @@ class PlayScreen extends React.Component {
         activeSoundActions.chooseActive(user.user.accessToken, fileId)
         .then((json) => {
             ReactNativeAudioStreaming.play(json.activeFile, {showIniOSMediaCenter: true, showInAndroidNotifications: true})
-        })
+        });
     }
 
     render() {
-        var { activeSound } = this.props;
+        var { activeSound, user } = this.props;
         var render = null
         if (activeSound.files.length > 0) {
             render = activeSound.files.map((file, index) => {
@@ -97,13 +99,24 @@ class PlayScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-                <Text onPress={this.signOut}>
-                    Logout
-                </Text>
-                <ScrollView>
-                    { render }
-                </ScrollView>
-                <AudioPlayer url={activeSound.activeFile} />
+                <Spinner visible={ activeSound.isFetchingFolders || activeSound.isFetchingFiles } />
+                <View style={styles.navContainer}>
+                    <NavBar
+                        gearStyle={styles.gearStyle}
+                        textStyle={styles.textStyle}
+                        profileImage={user.user.photo}
+                        title={'Your Library'}
+                    />
+                </View>
+                <View style={styles.mainView}>
+                    <Text onPress={this.signOut}>
+                        Logout
+                    </Text>
+                    <ScrollView>
+                        { render }
+                    </ScrollView>
+                    <AudioPlayer url={activeSound.activeFile} />
+                </View>
             </View>
         );
     }
@@ -112,7 +125,22 @@ class PlayScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Platform.OS === 'ios'? 64 : 54, //nav bar height
+    // paddingTop: Platform.OS === 'ios'? 64 : 54, //nav bar height
+  },
+  gearStyle: {
+    color: '#fff',
+  },
+  textStyle: {
+    color: '#fff',
+    fontWeight: '700',
+    letterSpacing: .5,
+  },
+  navContainer: {
+    paddingTop: 20,
+    backgroundColor: 'black',
+  },
+  mainView: {
+    flex: 1,
   },
   scroll: {
     flex: 1,

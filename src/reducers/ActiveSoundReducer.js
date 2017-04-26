@@ -7,6 +7,8 @@
 import types from '../config/action-types';
 
 const initialState = {
+    isFetchingFolders: false,
+    isFetchingFiles: false,
     files: [],
     folders: [],
     activeFolder: '',
@@ -16,6 +18,8 @@ const initialState = {
 
 module.exports = function ActiveSoundReducer(state = initialState, action) {
     switch (action.type) {
+        case types.FETCHING_FOLDERS:
+        case types.FETCHING_FILES:
         case types.ACTIVE_FOLDER:
         case types.ALL_FOLDERS:
         case types.CHOOSE_FILE:

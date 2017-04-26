@@ -15,7 +15,6 @@ import {
   CardAction
 } from 'react-native-card-view';
 
-
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class Files extends React.Component {
