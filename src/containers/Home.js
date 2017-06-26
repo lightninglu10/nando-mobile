@@ -55,7 +55,7 @@ class Home extends React.Component {
                     authActions.loggedIn(user);
                     activeSoundActions.getFolders(user.accessToken)
                     .then(setTimeout(() => {
-                        Actions.playScreen({type: 'reset'});
+                        Actions.folderScreen({type: 'reset'});
                     }, 500))
                 }
             }).done();

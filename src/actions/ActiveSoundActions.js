@@ -49,12 +49,13 @@ function activeFolder(folderId) {
     };
 }
 
-function getFiles(files, folderId) {
+function getFiles(files, folderId, folderName) {
     return {
         type: types.GET_FILES,
         isFetchingFiles: false,
         files: files,
         activeFolder: folderId,
+        activeFolderName: folderName,
     };
 }
 
@@ -73,7 +74,7 @@ module.exports = {
         }
     },
 
-    getFileList: function getFileList(apiToken, folderId) {
+    getFileList: function getFileList(apiToken, folderId, folderName) {
         var get_config = API.GET_CONFIG;
         get_config.headers['Authorization'] = `Bearer ${apiToken}`;
 
@@ -83,7 +84,7 @@ module.exports = {
             .then(Helpers.checkStatus)
             .then(Helpers.parseJSON)
             .then((json) => {
-                return dispatch(getFiles(json.files, folderId));
+                return dispatch(getFiles(json.files, folderId, folderName));
             });
         }
     },
@@ -97,6 +98,15 @@ module.exports = {
             .then((json) => {
                 var active_url = url + '&alt=media'
                 return dispatch(chooseActiveFile(active_url, json.name));
+            });
+        }
+    },
+
+    setTitleName: function setTitleName(name) {
+        return dispatch => {
+            return dispatch({
+                type: types.ACTIVE_FOLDER,
+                activeFolderName: name,
             });
         }
     }

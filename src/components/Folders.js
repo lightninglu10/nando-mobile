@@ -15,8 +15,11 @@ import {
   CardAction
 } from 'react-native-card-view';
 
-
+// NPM
 import Icon from 'react-native-vector-icons/FontAwesome';
+
+// Settings
+import { MAIN_BLACK } from '../config/settings';
 
 class Folders extends React.Component {
     constructor(props) {
@@ -32,10 +35,14 @@ class Folders extends React.Component {
     }
 
     render() {
+        var extra = this.props.folder ? {textAlign: 'center'} : null
         return (
             <View style={styles.container}>
-                <Icon name="folder" size={40} color="#900" />
-                <Text style={styles.name}> { this.props.name } </Text>
+                { this.props.folder 
+                    ?   <Icon name='folder' size={30} color="#870000" />
+                    :   null
+                }
+                <Text style={[styles.name, extra]}> { this.props.name } </Text>
             </View>
         );
     }
@@ -46,7 +53,10 @@ const styles = StyleSheet.create({
         flex: 3,
         alignSelf: 'center',
         justifyContent: 'center',
-        paddingLeft: 70,
+        // paddingLeft: 70,
+        color: '#9f9c9c',
+        fontWeight: '600',
+        letterSpacing: 1,
     },
     container: {
         flex: 1,
@@ -54,15 +64,15 @@ const styles = StyleSheet.create({
         padding: 16,
         margin: 5,
         alignItems: 'center',
-        backgroundColor: "#fff",
-        borderRadius: 2,
-        shadowColor: "#000000",
-        shadowOpacity: 0.3,
-        shadowRadius: 1,
-        shadowOffset: {
-          height: 1,
-          width: 0.3,
-        }
+        // backgroundColor: MAIN_BLACK,
+        // borderRadius: 2,
+        // shadowColor: "#fff",
+        // shadowOpacity: 0.6,
+        // shadowRadius: 1,
+        // shadowOffset: {
+        //   height: 1,
+        //   width: 0.6,
+        // }
     },
     card: {
         justifyContent: 'center',

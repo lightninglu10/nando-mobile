@@ -12,6 +12,8 @@ const initialState = {
     files: [],
     folders: [],
     activeFolder: '',
+    activeFolderName: 'Your Library',
+    previousFolderName: '',
     activeFile: 'https://mixergy.com/wp-content/audio/Mixergy-WhiteLabelDating-Ross-Williams.mp3',
     title: '',
 }
@@ -28,6 +30,7 @@ module.exports = function ActiveSoundReducer(state = initialState, action) {
         return {
             ...state,
             ...action,
+            previousFolderName: state.activeFolderName,
         }
 
         default:

@@ -40,6 +40,7 @@
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2D826DE7D8D047B392252E6E /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5A1F9A720B54D4A98D1E14E /* Ionicons.ttf */; };
 		2DCD954D1E0B4F2C00145EB5 /* nandoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* nandoTests.m */; };
+		453635E73CE045D2AA89A0D9 /* libBVLinearGradient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B115151A15246E4A147C159 /* libBVLinearGradient.a */; };
 		4C77942F36BB4C6AA5A7E96B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BBDAFD6BB6C457BAA960B3D /* SystemConfiguration.framework */; };
 		5AB67137365E49D0BA748B77 /* libRNGoogleSignin.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21F1C291519446FBB637B6FD /* libRNGoogleSignin.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
@@ -70,6 +71,7 @@
 		8F26D2B4771745DA9CB8DF1B /* libReactNativeAudioStreaming.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C74641E897E44CF86642E07 /* libReactNativeAudioStreaming.a */; };
 		97E1108C5F6E4451978BDA18 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB73669B7B044A3F977841E2 /* libRNVectorIcons.a */; };
 		9A9DDB72F0014AE7B4457D05 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 56BF1A3D1F0A4CE59BAF35D1 /* FontAwesome.ttf */; };
+		A29FE8786E6F40BB82B2523E /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4D1248B24B457A98925ADE /* libSplashScreen.a */; };
 		A48D6AD902D1C5F1EC644C66 /* libPods-nando.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A1712036C265988B524C45F1 /* libPods-nando.a */; };
 		BAAE7A00EF4AEC57C228DF95 /* libPods-nando-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26EBE61EDBC0F6F8070066DD /* libPods-nando-tvOSTests.a */; };
 		BCC463741C95338F16627B6D /* libPods-nando-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 895AF5F9BA25AEF3922473A9 /* libPods-nando-tvOS.a */; };
@@ -283,6 +285,20 @@
 			remoteGlobalIDString = 9FD355121D3E4A2900D06170;
 			remoteInfo = RNGoogleSignin;
 		};
+		81C587D51EB16A420089F198 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC2171735E6647D9BD7B58F2 /* SplashScreen.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D7682761D8E76B80014119E;
+			remoteInfo = SplashScreen;
+		};
+		81C587DA1EB16A420089F198 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC6A62C62084475C93E100C3 /* BVLinearGradient.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = BVLinearGradient;
+		};
 		81CF5FF51EAF086E00E82074 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC32F38EA6524F8EADB93505 /* ReactNativeAudioStreaming.xcodeproj */;
@@ -346,12 +362,14 @@
 		21F1C291519446FBB637B6FD /* libRNGoogleSignin.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNGoogleSignin.a; sourceTree = "<group>"; };
 		26EBE61EDBC0F6F8070066DD /* libPods-nando-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nando-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2918933CE0C8B6946A4637FC /* Pods-nando-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nando-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nando-tvOSTests/Pods-nando-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2B115151A15246E4A147C159 /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* nando-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nando-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* nando-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "nando-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4312BC1793F0489DA0E82826 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		4402E647D05945879834ACEA /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		4420063DF5B2D3AED0A479BB /* Pods-nandoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nandoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nandoTests/Pods-nandoTests.release.xcconfig"; sourceTree = "<group>"; };
 		4B27561CC1264B09A08A62E2 /* RNGoogleSignin.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNGoogleSignin.xcodeproj; path = "../node_modules/react-native-google-signin/ios/RNGoogleSignin.xcodeproj"; sourceTree = "<group>"; };
+		4C4D1248B24B457A98925ADE /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		5146476768C08A06CF7BCC39 /* Pods-nando-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nando-tvOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-nando-tvOS/Pods-nando-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		56BF1A3D1F0A4CE59BAF35D1 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		592BDDC03EBC358B2AF9AD57 /* Pods-nando-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nando-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nando-tvOSTests/Pods-nando-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -390,6 +408,8 @@
 		C611B3276FAF4A9208374AC0 /* libPods-nandoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nandoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C86AC4929960465AAB5E5525 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
 		CB04AAA9656A402A9B7A5AC4 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		CC2171735E6647D9BD7B58F2 /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
+		CC6A62C62084475C93E100C3 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		D17FC74AA45A4CDF85B6F612 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		D4D0AE8381434008B157B286 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		D5A1F9A720B54D4A98D1E14E /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
@@ -443,6 +463,8 @@
 				97E1108C5F6E4451978BDA18 /* libRNVectorIcons.a in Frameworks */,
 				DC04907413844DBBAE013D70 /* libRNSound.a in Frameworks */,
 				8F26D2B4771745DA9CB8DF1B /* libReactNativeAudioStreaming.a in Frameworks */,
+				453635E73CE045D2AA89A0D9 /* libBVLinearGradient.a in Frameworks */,
+				A29FE8786E6F40BB82B2523E /* libSplashScreen.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,6 +697,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		81C587B21EB16A420089F198 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81C587D61EB16A420089F198 /* libSplashScreen.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81C587D71EB16A420089F198 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81C587DB1EB16A420089F198 /* libBVLinearGradient.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		81CF5FD91EAF086E00E82074 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -720,6 +758,8 @@
 				F1DA584BC944403BAAF350D5 /* RNVectorIcons.xcodeproj */,
 				678C9F5DCA5149379DCC885C /* RNSound.xcodeproj */,
 				DC32F38EA6524F8EADB93505 /* ReactNativeAudioStreaming.xcodeproj */,
+				CC6A62C62084475C93E100C3 /* BVLinearGradient.xcodeproj */,
+				CC2171735E6647D9BD7B58F2 /* SplashScreen.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -906,6 +946,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 81C587D71EB16A420089F198 /* Products */;
+					ProjectRef = CC6A62C62084475C93E100C3 /* BVLinearGradient.xcodeproj */;
+				},
+				{
 					ProductGroup = 81CF5FFC1EAF089A00E82074 /* Products */;
 					ProjectRef = 81CF5FFB1EAF089A00E82074 /* Pods.xcodeproj */;
 				},
@@ -972,6 +1016,10 @@
 				{
 					ProductGroup = 8157F42E1EA99637009B3669 /* Products */;
 					ProjectRef = F1DA584BC944403BAAF350D5 /* RNVectorIcons.xcodeproj */;
+				},
+				{
+					ProductGroup = 81C587B21EB16A420089F198 /* Products */;
+					ProjectRef = CC2171735E6647D9BD7B58F2 /* SplashScreen.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1172,6 +1220,20 @@
 			fileType = archive.ar;
 			path = libRNGoogleSignin.a;
 			remoteRef = 818C3C8A1EA35874007C0040 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		81C587D61EB16A420089F198 /* libSplashScreen.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSplashScreen.a;
+			remoteRef = 81C587D51EB16A420089F198 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		81C587DB1EB16A420089F198 /* libBVLinearGradient.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libBVLinearGradient.a;
+			remoteRef = 81C587DA1EB16A420089F198 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		81CF5FF61EAF086E00E82074 /* libReactNativeAudioStreaming.a */ = {
@@ -1557,12 +1619,16 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = nandoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1588,12 +1654,16 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = nandoTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1624,6 +1694,8 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = nando/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1660,6 +1732,8 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = nando/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
@@ -1699,11 +1773,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = "nando-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1739,11 +1817,15 @@
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-sound/RNSound",
 					"$(SRCROOT)/../node_modules/react-native-audio-streaming/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
+					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = "nando-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1776,6 +1858,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.nando-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1802,6 +1886,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.nando-tvOSTests";

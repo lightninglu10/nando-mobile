@@ -10,7 +10,12 @@ import {
     Platform
 } from 'react-native';
 
+// NPM
 import { ReactNativeAudioStreaming } from 'react-native-audio-streaming';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
+// Settings
+import { MAIN_BLACK } from '../config/settings';
 
 // Possibles states
 const PLAYING = 'PLAYING';
@@ -77,12 +82,12 @@ class AudioPlayer extends Component {
         switch (this.state.status) {
             case PLAYING:
             case STREAMING:
-                icon = <Text style={styles.icon}>॥</Text>;
+                icon = <Icon style={styles.icon} name="pause" size={30} color="#870000" />
                 break;
             case PAUSED:
             case STOPPED:
             case ERROR:
-                icon = <Text style={styles.icon}>▸</Text>;
+                icon = <Icon style={[styles.icon, {paddingLeft: Platform.OS == 'ios' ? 2 : 0,}]} name="play" size={30} color="#870000" />
                 break;
             case BUFFERING:
             case BUFFERING_START:
@@ -98,7 +103,7 @@ class AudioPlayer extends Component {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={this._onPress}>
-                    {icon}
+                    { icon }
                 </TouchableOpacity>
                 <View style={styles.textContainer}>
                     <Text style={styles.songName}>{this.state.song}</Text>
@@ -119,22 +124,22 @@ const styles = StyleSheet.create({
         height: 80,
         paddingLeft: 10,
         paddingRight: 10,
-        borderColor: '#000033',
+        borderColor: MAIN_BLACK,
         borderTopWidth: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#1b1d1f',
     },
     icon: {
-        color: '#000',
-        fontSize: 26,
-        borderColor: '#000033',
-        borderWidth: 1,
+        color: '#870000',
+        // fontSize: 26,
+        borderColor: '#870000',
+        borderWidth: 3,
         borderRadius: iconSize / 2,
         width: iconSize,
         height: Platform.OS == 'ios' ? iconSize : 40,
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
-        paddingTop: Platform.OS == 'ios' ? 10 : 0
+        paddingTop: Platform.OS == 'ios' ? 13 : 0,
     },
     textContainer: {
         flexDirection: 'column',

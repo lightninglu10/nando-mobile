@@ -3,6 +3,8 @@ package com.nando;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.cboy.rn.splashscreen.SplashScreenReactPackage;
+import com.BV.LinearGradient.LinearGradientPackage;
 import com.audioStreaming.ReactNativeAudioStreamingPackage;
 import com.zmxv.RNSound.RNSoundPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -28,6 +30,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SplashScreenReactPackage(),
+            new LinearGradientPackage(),
             new ReactNativeAudioStreamingPackage(),
             new RNSoundPackage(),
             new VectorIconsPackage(),

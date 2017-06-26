@@ -14,6 +14,9 @@ module.exports = {
     FETCHING_FOLDERS: 'Fetching folders',
     FETCHING_FILES: 'Fetching files',
 
+    // Audio Player,
+    SHOW_AUDIOPLAYER: 'Showing audio player or taking it down',
+
     // User API
     LOGIN: 'Logged in',
 }

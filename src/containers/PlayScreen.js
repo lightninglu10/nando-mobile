@@ -21,20 +21,24 @@ import { bindActionCreators } from 'redux';
 // NPM Requirements
 import { Player, ReactNativeAudioStreaming } from 'react-native-audio-streaming';
 import Spinner from 'react-native-loading-spinner-overlay';
+import LinearGradient from 'react-native-linear-gradient';
 
 // Actions
 import ActiveSoundActions from '../actions/ActiveSoundActions';
+import AudioPlayerActions from '../actions/AudioPlayerActions';
 
 // Components
 import GoogleSignIn from '../components/GoogleSignIn';
 import Folders from '../components/Folders';
 import Files from '../components/Files';
-import AudioPlayer from '../components/AudioPlayer';
 import NavBar from './NavBar.js';
 
 // NPM
 import { Actions } from 'react-native-router-flux';
 import { GoogleSignin } from 'react-native-google-signin';
+
+// Settings
+import { MAIN_BLACK } from '../config/settings';
 
 class PlayScreen extends React.Component {
     constructor(props) {
@@ -56,18 +60,19 @@ class PlayScreen extends React.Component {
         });
     }
 
-    getFiles = (folderId) => {
+    getFiles = (folderId, folderName) => {
         let { user, activeSoundActions } = this.props;
-        activeSoundActions.getFileList(user.user.accessToken, folderId)
+        activeSoundActions.getFileList(user.user.accessToken, folderId, folderName)
         .then((json) => {
 
         });
     }
 
     chooseActiveFile = (fileId) => {
-        let { user, activeSoundActions } = this.props;
+        let { user, activeSoundActions, audioPlayerActions } = this.props;
         activeSoundActions.chooseActive(user.user.accessToken, fileId)
         .then((json) => {
+            audioPlayerActions.show(true);
             ReactNativeAudioStreaming.play(json.activeFile, {showIniOSMediaCenter: true, showInAndroidNotifications: true})
         });
     }
@@ -80,7 +85,7 @@ class PlayScreen extends React.Component {
                 return (
                     <TouchableHighlight key={file.id} onPress={() => this.chooseActiveFile(file.id)}>
                         <View>
-                            <Files name={file.name} key={file.id} onClick={this.chooseActiveFile} />
+                            <Folders folder={false} name={file.name} key={file.id} onClick={this.chooseActiveFile} />
                         </View>
                     </TouchableHighlight>
                 );
@@ -88,9 +93,9 @@ class PlayScreen extends React.Component {
         } else {
             render = activeSound.folders.map((folder, index) => {
                 return (
-                    <TouchableHighlight key={folder.id} onPress={() => this.getFiles(folder.id)}>
+                    <TouchableHighlight key={folder.id} onPress={() => this.getFiles(folder.id, folder.name)}>
                         <View>
-                            <Folders name={folder.name} />
+                            <Folders folder={true} name={folder.name} />
                         </View>
                     </TouchableHighlight>
                 );
@@ -105,17 +110,14 @@ class PlayScreen extends React.Component {
                         gearStyle={styles.gearStyle}
                         textStyle={styles.textStyle}
                         profileImage={user.user.photo}
-                        title={'Your Library'}
+                        title={activeSound.activeFolderName}
+                        signOut={this.signOut}
                     />
                 </View>
                 <View style={styles.mainView}>
-                    <Text onPress={this.signOut}>
-                        Logout
-                    </Text>
                     <ScrollView>
                         { render }
                     </ScrollView>
-                    <AudioPlayer url={activeSound.activeFile} />
                 </View>
             </View>
         );
@@ -125,10 +127,13 @@ class PlayScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 59,
+    paddingTop: 5,
     // paddingTop: Platform.OS === 'ios'? 64 : 54, //nav bar height
   },
   gearStyle: {
     color: '#fff',
+    backgroundColor: 'transparent',
   },
   textStyle: {
     color: '#fff',
@@ -137,17 +142,12 @@ const styles = StyleSheet.create({
   },
   navContainer: {
     paddingTop: 20,
-    backgroundColor: 'black',
+    backgroundColor: '#1b1d1f',
+    // backgroundColor: 'black',
   },
   mainView: {
     flex: 1,
-  },
-  scroll: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
-  },
-  folders: {
-    // flexDirection: 'column',
+    backgroundColor: MAIN_BLACK,
   },
 });
 
@@ -161,6 +161,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         activeSoundActions: bindActionCreators(ActiveSoundActions, dispatch),
+        audioPlayerActions: bindActionCreators(AudioPlayerActions, dispatch),
     };
 }
 

@@ -19,10 +19,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 // NPM Requirements
-import Spinner from 'react-native-loading-spinner-overlay';
+import { Player } from 'react-native-audio-streaming';
 
 // Actions
 import ActiveSoundActions from '../actions/ActiveSoundActions';
+import AudioPlayerActions from '../actions/AudioPlayerActions';
 
 // Components
 import GoogleSignIn from '../components/GoogleSignIn';
@@ -31,6 +32,9 @@ import Folders from '../components/Folders';
 // NPM
 import { Actions } from 'react-native-router-flux';
 import { GoogleSignin } from 'react-native-google-signin';
+import { ReactNativeAudioStreaming } from 'react-native-audio-streaming';
+import Spinner from 'react-native-loading-spinner-overlay';
+
 
 // Settings
 import { MAIN_BLACK } from '../config/settings';
@@ -44,31 +48,32 @@ class FolderScreen extends React.Component {
         }
     }
 
-    getFiles = (folderId, folderName) => {
-        let { user, activeSoundActions } = this.props;
-        activeSoundActions.getFileList(user.user.accessToken, folderId, folderName)
+    chooseActiveFile = (fileId) => {
+        let { user, activeSoundActions, audioPlayerActions } = this.props;
+        activeSoundActions.chooseActive(user.user.accessToken, fileId)
         .then((json) => {
-            Actions.fileScreen();
+            ReactNativeAudioStreaming.play(json.activeFile, {showIniOSMediaCenter: true, showInAndroidNotifications: true})
         });
+        audioPlayerActions.show(true);
     }
 
     render() {
         var { activeSound } = this.props;
 
-        var folders = activeSound.folders.map((folder, index) => {
+        var files = activeSound.files.map((file, index) => {
             return (
-                <TouchableHighlight key={folder.id} onPress={() => this.getFiles(folder.id, folder.name)}>
+                <TouchableHighlight key={file.id} onPress={() => this.chooseActiveFile(file.id)}>
                     <View>
-                        <Folders folder={true} name={folder.name} />
+                        <Folders folder={false} name={file.name} key={file.id} onClick={this.chooseActiveFile} />
                     </View>
                 </TouchableHighlight>
             );
         });
         return (
             <View style={styles.container}>
-                <Spinner visible={ activeSound.isFetchingFolders || activeSound.isFetchingFiles } />
+                <Spinner visible={ activeSound.isFetchingFiles } />
                 <ScrollView style={styles.scroll}>
-                    { folders }
+                    { files }
                 </ScrollView>
             </View>
         );
@@ -112,6 +117,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         activeSoundActions: bindActionCreators(ActiveSoundActions, dispatch),
+        audioPlayerActions: bindActionCreators(AudioPlayerActions, dispatch),
     };
 }
 
